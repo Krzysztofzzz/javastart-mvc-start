@@ -10,11 +10,7 @@ public class WelcomeController {
 
     @GetMapping("/hello")
     @ResponseBody
-    String hello(@RequestParam(required = false) String name) {
-        if (name == null) {
-            return "Hello stranger!";
-        } else {
-            return "Hello " + name;
-        }
+    String hello(@RequestParam(required = false, defaultValue = "stranger!") String name) {
+        return "Hello " + name;
     }
 }
